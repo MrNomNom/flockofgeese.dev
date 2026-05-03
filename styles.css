@@ -1,0 +1,429 @@
+/* FlockOfGeese.dev — static landing (GitHub Pages) */
+
+:root {
+  --bg-page: #fdfbf7;
+  --bg-hill: #f3efe8;
+  --text-primary: #1a202c;
+  --text-muted: #64748b;
+  --text-muted-light: #94a3b8;
+  --accent: #e67e22;
+  --accent-hover: #d35400;
+  --white: #ffffff;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --border-subtle: #e2e8f0;
+  --badge-bg: #d1fae5;
+  --badge-text: #065f46;
+  --icon-gradient-top: #6ee7b7;
+  --icon-gradient-bottom: #0d9488;
+  --garmin-box-bg: #f8fafc;
+  --strava-orange: #fc5200;
+  --max-width: 1040px;
+  --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ----- Header ----- */
+
+.site-header {
+  padding-block: 1.5rem 0.5rem;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.brand-mark {
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--text-primary);
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  opacity: 0.85;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.icon-link:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.icon-link svg {
+  display: block;
+}
+
+/* ----- Hero ----- */
+
+.hero {
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(2.5rem, 6vw, 4rem);
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-weight: 700;
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-lede {
+  margin: 1.25rem auto 0;
+  max-width: 36rem;
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.hero-lede .accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero-art {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  display: flex;
+  justify-content: center;
+}
+
+.hero-art svg {
+  width: min(100%, 720px);
+  height: auto;
+}
+
+/* ----- Projects ----- */
+
+.projects {
+  padding-block: 0 4rem;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-title-line {
+  width: 48px;
+  height: 4px;
+  margin: 0.65rem auto 0;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ----- Project card ----- */
+
+.project-card {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+}
+
+.project-icon-wrap {
+  flex-shrink: 0;
+}
+
+.project-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    var(--icon-gradient-top) 0%,
+    var(--icon-gradient-bottom) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.project-icon svg {
+  width: 52px;
+  height: 52px;
+}
+
+.project-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.project-name {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--badge-text);
+  background: var(--badge-bg);
+  border-radius: 999px;
+}
+
+.project-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+
+.project-footer {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.flow-arrow {
+  color: var(--text-muted-light);
+  flex-shrink: 0;
+}
+
+.flow-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: var(--garmin-box-bg);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.flow-box--garmin {
+  color: #1e293b;
+  font-family: var(--font);
+}
+
+.flow-box--strava {
+  background: var(--white);
+  border-color: #fed7aa;
+  color: var(--strava-orange);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 0.78rem;
+}
+
+.btn-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.btn-learn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 1px 8px rgba(230, 126, 34, 0.12);
+}
+
+/* ----- Footer ----- */
+
+.site-footer {
+  margin-top: auto;
+  padding-block: 3rem 2.5rem;
+  text-align: center;
+}
+
+.footer-print {
+  margin: 0 auto 0.75rem;
+  color: var(--accent);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-print svg {
+  width: 28px;
+  height: auto;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted-light);
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 700px) {
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-body {
+    align-items: center;
+  }
+
+  .project-title-row {
+    justify-content: center;
+  }
+
+  .project-desc {
+    text-align: center;
+  }
+
+  .project-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flow {
+    justify-content: center;
+  }
+
+  .btn-learn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-actions {
+    gap: 1rem;
+  }
+
+  .brand-name {
+    font-size: 0.85rem;
+  }
+}
